@@ -9,9 +9,10 @@ namespace MVC_Database.Controllers
         public DeptController(IDept _repos) { 
                repos = _repos;
         }
-        public IActionResult Index()
+        public IActionResult List()
         {
-            return View();
+            var data = repos.GetDepts();
+            return View(data);
         }
     }
 }
