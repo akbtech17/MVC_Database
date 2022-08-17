@@ -41,5 +41,22 @@ namespace MVC_Database.Controllers
             }
             return View(dept);
         }
+
+        [HttpGet]
+        public IActionResult Edit()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Dept dept)
+        {
+            if (ModelState.IsValid)
+            {
+                repos.EditDept(dept);
+                return RedirectToAction("List");
+            }
+            return View(dept);
+        }
     }
 }
