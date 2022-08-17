@@ -43,9 +43,10 @@ namespace MVC_Database.Controllers
         }
 
         [HttpGet]
-        public IActionResult Edit()
+        public IActionResult Edit(int Id)
         {
-            return View();
+            var data = repos.FindDept(Id);
+            return View(data);
         }
 
         [HttpPost]
