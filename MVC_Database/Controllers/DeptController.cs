@@ -26,9 +26,20 @@ namespace MVC_Database.Controllers
             return View("List", data);
         }
 
+        [HttpGet]
         public IActionResult Create()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Dept dept)
+        {
+            if (ModelState.IsValid) {
+                repos.AddDept(dept);
+                return RedirectToAction("List");
+            }
+            return View(dept);
         }
     }
 }
