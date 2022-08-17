@@ -20,10 +20,18 @@ namespace MVC_Database.Controllers
             return View(data);
         }
 
-        public IActionResult Delete(int Id) {
-            repos.DeleteDept(Id);
+        [HttpGet]
+        public IActionResult Delete(int Id)
+        {
+            var data = repos.FindDept(Id);
+            return View(data);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(Dept dept) {
+            repos.DeleteDept(dept.Id);
             var data = repos.GetDepts();
-            return View("List", data);
+            return RedirectToAction("List");
         }
 
         [HttpGet]
