@@ -3,6 +3,9 @@
 <h1>List of Departments</h1>
 <hr />
 
+@*Create will be the ActionMethod in the Controller
+Add Dept will be the link to be displayed on the screen*@
+@Html.ActionLink("Add Dept", "Create")
 <table border="1">
     <thead>
         <tr>
@@ -18,6 +21,13 @@
                 <td>@Html.DisplayFor(d => data.Id)</td>
                 <td>@Html.DisplayFor(d => data.Name)</td>
                 <td>@Html.DisplayFor(d => data.Location)</td>
+                @*Display will be the ActionMethod in the Controller
+                Details will be the link to be displayed on the screen*@
+                <td>>
+                    @Html.ActionLink("Details", "Display", new { Id = data.Id }) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    @Html.ActionLink("Edit", "Edit", new { Id = data.Id }) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    @Html.ActionLink("Delete", "Delete", new { Id = data.Id }) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                </td>
             </tr>
         }
     </tbody>
