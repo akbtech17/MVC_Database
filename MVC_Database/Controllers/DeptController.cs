@@ -19,5 +19,11 @@ namespace MVC_Database.Controllers
             var data = repos.FindDept(Id);
             return View(data);
         }
+
+        public IActionResult Delete(int Id) {
+            repos.DeleteDept(Id);
+            var data = repos.GetDepts();
+            return View("List", data);
+        }
     }
 }
