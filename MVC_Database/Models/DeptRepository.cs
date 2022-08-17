@@ -9,13 +9,23 @@ namespace MVC_Database.Models
 
         public void AddDept(Dept dept)
         {
+            // 1: add to the collection Depts
             db.Depts.Add(dept);
+            
+            // 2: context.SaveChanges()
             db.SaveChanges();
         }
 
         public void DeleteDept(int id)
         {
-            throw new System.NotImplementedException();
+            // 1: fetch the record
+            Dept dp = FindDept(id);
+            
+            // 2: remove the reocrd
+            db.Depts.Remove(dp);
+            
+            // 3: context.SaveChanges()
+            db.SaveChanges();
         }
 
         public void EditDept(Dept dept)
