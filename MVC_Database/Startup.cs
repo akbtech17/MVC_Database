@@ -48,9 +48,10 @@ namespace MVC_Database
             {
                 routes.MapRoute(
                         name: "default",
-                        template: "{controller-Dept}/{action-List}/{id?}"
+                        template: "{controller=Dept}/{action=List}/{id?}"
                     );
             });
+
         }
     }
 }
