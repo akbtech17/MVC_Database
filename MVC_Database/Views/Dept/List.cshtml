@@ -23,7 +23,7 @@ Add Dept will be the link to be displayed on the screen*@
                 <td>@Html.DisplayFor(d => data.Location)</td>
                 @*Display will be the ActionMethod in the Controller
                 Details will be the link to be displayed on the screen*@
-                <td>>
+                <td>
                     @Html.ActionLink("Details", "Display", new { Id = data.Id }) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                     @Html.ActionLink("Edit", "Edit", new { Id = data.Id }) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                     @Html.ActionLink("Delete", "Delete", new { Id = data.Id }) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
