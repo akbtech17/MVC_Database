@@ -9,7 +9,8 @@ namespace MVC_Database.Models
 
         public void AddDept(Dept dept)
         {
-            throw new System.NotImplementedException();
+            db.Depts.Add(dept);
+            db.SaveChanges();
         }
 
         public void DeleteDept(int id)
