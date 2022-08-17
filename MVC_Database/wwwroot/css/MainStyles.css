@@ -23,3 +23,8 @@ tr:hover {
 th{
   font-weight: bolder;
 }
+
+h2 {
+    background-color: fuchsia;
+   font-family: 'Comic Sans MS'
+}
