@@ -31,7 +31,7 @@ namespace MVC_Database.Models
         public void EditDept(Dept new_dept)
         {
             // 1: fetch the record
-            Dept old_dept = db.Depts.Find(dept.Id);
+            Dept old_dept = db.Depts.Find(new_dept.Id);
 
             // 2: make the changes
             old_dept.Name = new_dept.Name;
