@@ -28,9 +28,18 @@ namespace MVC_Database.Models
             db.SaveChanges();
         }
 
-        public void EditDept(Dept dept)
+        public void EditDept(Dept new_dept)
         {
-            throw new System.NotImplementedException();
+            // 1: fetch the record
+            Dept old_dept = db.Depts.Find(dept.Id);
+
+            // 2: make the changes
+            old_dept.Name = new_dept.Name;
+            old_dept.Location = new_dept.Location;
+            
+
+            // 3: context.SaveChanges()
+            db.SaveChanges();
         }
 
         public Dept FindDept(int id)
