@@ -25,5 +25,10 @@ namespace MVC_Database.Controllers
             var data = repos.GetDepts();
             return View("List", data);
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }
