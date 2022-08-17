@@ -24,7 +24,9 @@ namespace MVC_Database.Models
 
         public Dept FindDept(int id)
         {
-            throw new System.NotImplementedException();
+            //var data = (from dept in db.Depts where dept.Id == id).FirstOrDefault();
+            var data = db.Depts.Find(id);
+            return data;
         }
 
         public List<Dept> GetDepts()
