@@ -25,7 +25,7 @@ namespace MVC_Database.Controllers
         [HttpPost]
         public IActionResult Create(Emp emp)
         {
-            if (ModelState.IsValid) { 
+            if (ModelState.IsValid) {
                 db.Emps.Add(emp);
                 db.SaveChanges();
                 return RedirectToAction("List");
@@ -54,9 +54,16 @@ namespace MVC_Database.Controllers
                 db.SaveChanges();
                 return RedirectToAction("List");
             }
-           
+
             ViewBag.Deptid = new SelectList(db.Depts, "Id", "Name");
             return View(emp);
+        }
+
+        // remote validation
+        public JsonResult EmailCheck(string Email) {
+
+            bool found = db.Emps.Any(e => e.Email == Email);
+            return Json(!found);
         }
     }
 }
