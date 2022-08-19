@@ -72,10 +72,11 @@ namespace MVC_Database.Controllers
         public IActionResult ShowBonus() {
             List<Emp> emps = db.Emps.Include("Dept").ToList();
             List<EmpDept> empDepts = new List<EmpDept>();
-            EmpDept ed = new EmpDept();
+            
 
             foreach (var data in emps)
             {
+                EmpDept ed = new EmpDept();
                 ed.Id = data.Id;
                 ed.Name = data.Name;
                 ed.DeptName = data.Dept.Name;
