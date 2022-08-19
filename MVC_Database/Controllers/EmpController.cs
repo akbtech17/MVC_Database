@@ -2,7 +2,9 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MVC_Database.Models;
+using System.Collections.Generic;
 using System.Linq;
+using MVC_Database.ViewModel;
 
 namespace MVC_Database.Controllers
 {
@@ -64,6 +66,30 @@ namespace MVC_Database.Controllers
 
             bool found = db.Emps.Any(e => e.Email == Email);
             return Json(!found);
+        }
+
+        // action method for viewmodel
+        public IActionResult ShowBonus() {
+            List<Emp> emps = db.Emps.Include("Dept").ToList();
+            List<EmpDept> empDepts = new List<EmpDept>();
+            EmpDept ed = new EmpDept();
+
+            foreach (var data in emps)
+            {
+                ed.Id = data.Id;
+                ed.Name = data.Name;
+                ed.DeptName = data.Dept.Name;
+                ed.Location = data.Dept.Location;
+                ed.Salary = data.Salary;
+
+                if (data.Salary > 700000) ed.Bonus = 7000;
+                else if (data.Salary > 400000) ed.Bonus = 4000;
+                else ed.Bonus = 2000;
+
+                empDepts.Add(ed);
+              
+            }
+            return View(empDepts);
         }
     }
 }
