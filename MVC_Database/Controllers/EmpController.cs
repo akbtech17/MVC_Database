@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MVC_Database.Models;
+using System.Linq;
 
 namespace MVC_Database.Controllers
 {
@@ -8,7 +10,8 @@ namespace MVC_Database.Controllers
         db1045Context db = new db1045Context();
         public IActionResult List()
         {
-            return View();
+            var empdata = db.Emps.Include("Dept").ToList();
+            return View(empdata);
         }
     }
 }
