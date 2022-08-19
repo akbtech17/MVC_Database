@@ -5,7 +5,7 @@ namespace MVC_Database.Controllers
 {
     public class EmpController : Controller
     {
-        public IActionResult Index()
+        public IActionResult List()
         {
             return View();
         }
