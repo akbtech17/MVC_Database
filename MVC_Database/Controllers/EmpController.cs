@@ -92,5 +92,14 @@ namespace MVC_Database.Controllers
             }
             return View(empDepts);
         }
+
+        public IActionResult Display(int Id)
+        {
+            List<Emp> emps = db.Emps.Include("Dept").ToList();
+            Emp emp = emps.Find(e => e.Id == Id);
+
+            return View(emp);
+        }
+    
     }
 }

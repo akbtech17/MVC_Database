@@ -1,0 +1,14 @@
+﻿@model Emp
+<h2>Detail of the Searched Department</h2>
+<hr />
+
+<p>@Html.DisplayNameFor(d => d.Id) : @Html.DisplayFor(d => d.Id)</p>
+<p>@Html.DisplayNameFor(d => d.Name) : @Html.DisplayFor(d => d.Name)</p>
+<p>@Html.DisplayNameFor(d => d.Deptid) : @Html.DisplayFor(d => d.Deptid)</p>
+<p>@Html.DisplayNameFor(d => d.Dob) : @Html.DisplayFor(d => d.Dob)</p>
+<p>@Html.DisplayNameFor(d => d.Email) : @Html.DisplayFor(d => d.Email)</p>
+<p>@Html.DisplayNameFor(d => d.Dept.Name) : @Html.DisplayFor(d => d.Dept.Name)</p>
+<p>@Html.DisplayNameFor(d => d.Dept.Location) : @Html.DisplayFor(d => d.Dept.Location)</p>
+
+<hr />
+@Html.ActionLink("Back to the List", "List")
