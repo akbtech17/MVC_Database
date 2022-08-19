@@ -23,6 +23,7 @@ namespace MVC_Database.Models
 
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
+        [DOBCheck(ErrorMessage = "You must be atleast 25 years old")]
         public DateTime? Dob { get; set; }
 
         [Required(ErrorMessage = "Cannot be empty!")]
