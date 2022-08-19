@@ -30,7 +30,7 @@ namespace MVC_Database.Controllers
                 db.SaveChanges();
                 return RedirectToAction("List");
             }
-            ViewBag.DeptId = new SelectList(db.Depts, "Id", "Name");
+            ViewBag.Deptid = new SelectList(db.Depts, "Id", "Name");
             return View(emp);
         }
     }
