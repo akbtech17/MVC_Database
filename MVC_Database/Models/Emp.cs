@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 #nullable disable
@@ -28,6 +29,7 @@ namespace MVC_Database.Models
 
         [Required(ErrorMessage = "Cannot be empty!")]
         [DataType(DataType.EmailAddress)]
+        [Remote("EmailCheck","Emp",ErrorMessage = "Duplicate Email")]
         public string Email { get; set; }
 
         public virtual Dept Dept { get; set; }
