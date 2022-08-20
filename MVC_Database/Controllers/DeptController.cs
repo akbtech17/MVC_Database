@@ -44,18 +44,20 @@ namespace MVC_Database.Controllers
         [HttpPost]
         public IActionResult Create(Dept dept)
         {
-            if (ModelState.IsValid) {
-                try
+            try {
+                if (ModelState.IsValid)
                 {
                     repos.AddDept(dept);
+                    return RedirectToAction("List");
                 }
-                catch (Exception e) {
-                    ViewBag.ErrorMessage = e.Message;
-                    return View("Error");
-                }
-                return RedirectToAction("List");
+                return View(dept);
             }
-            return View(dept);
+
+            catch (Exception e)
+            {
+                ViewBag.ErrorMessage = e.Message;
+                return View("Error");
+            }
         }
 
         [HttpGet]
