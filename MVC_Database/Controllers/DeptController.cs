@@ -55,7 +55,7 @@ namespace MVC_Database.Controllers
 
             catch (Exception e)
             {
-                ViewBag.ErrorMessage = e.Message;
+                ViewBag.ErrorMessage = e.InnerException.Message;
                 return View("Error");
             }
         }
