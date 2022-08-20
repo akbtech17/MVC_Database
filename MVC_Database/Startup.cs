@@ -38,8 +38,14 @@ namespace MVC_Database
         {
             if (env.IsDevelopment())
             {
+                // which we see on exception occurance -  by default
                 app.UseDeveloperExceptionPage();
             }
+            else {
+                // use this exception to handle exception in production env
+                app.UseExceptionHandler("/Error");
+            }
+
 
             app.UseStaticFiles();
             app.UseRouting();
