@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace MVC_Database.Controllers
 {
@@ -6,8 +7,14 @@ namespace MVC_Database.Controllers
     {
         public IActionResult Index()
         {
-            int a = 10, b = 0;
-            int c = a / b;
+            try
+            {
+                int a = 10, b = 0;
+                int c = a / b;
+            }
+            catch(Exception e) {
+                return View("Error");
+            }
             return View();
         }
     }
