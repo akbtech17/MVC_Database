@@ -12,7 +12,8 @@ namespace MVC_Database.Controllers
                 int a = 10, b = 0;
                 int c = a / b;
             }
-            catch(Exception e) {
+            catch(Exception e) 
+            {
                 return View("Error");
             }
             return View();
