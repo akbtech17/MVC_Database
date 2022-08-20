@@ -50,7 +50,7 @@ namespace MVC_Database.Controllers
                 var odata = db.Emps.Find(emp.Id);
                 odata.Name = emp.Name;
                 odata.Salary = emp.Salary;
-                odata.Email = emp.Email;
+                //odata.Email = emp.Email;
                 odata.Dob = emp.Dob;
                 odata.Deptid = emp.Deptid;
                 db.SaveChanges();
