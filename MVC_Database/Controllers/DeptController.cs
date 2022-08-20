@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MVC_Database.Models;
+using System;
 
 namespace MVC_Database.Controllers
 {
@@ -44,7 +45,14 @@ namespace MVC_Database.Controllers
         public IActionResult Create(Dept dept)
         {
             if (ModelState.IsValid) {
-                repos.AddDept(dept);
+                try
+                {
+                    repos.AddDept(dept);
+                }
+                catch (Exception e) {
+                    ViewBag.ErrorMessage = e.Message;
+                    return View("Error");
+                }
                 return RedirectToAction("List");
             }
             return View(dept);
